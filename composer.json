@@ -1,0 +1,46 @@
+{
+  "name": "webguosai/hyperf-mailer",
+  "description": "hyperf邮箱扩展包",
+  "license": "MIT",
+  "keywords": [
+    "php",
+    "hyperf",
+    "mail",
+    "smtp",
+    "hyperf-mailer"
+  ],
+  "support": {
+    "issues": "https://github.com/webguosai/hyperf-mailer/issues",
+    "source": "https://github.com/webguosai/hyperf-mailer"
+  },
+  "authors": [
+    {
+      "name": "webguosai",
+      "email": "501807312@qq.com"
+    }
+  ],
+  "require": {
+    "php": ">=8.1",
+    "hyperf/di": "~3.1.0",
+    "phpmailer/phpmailer": "^6.9"
+  },
+  "require-dev": {
+    "symfony/var-dumper": "^3.4"
+  },
+  "autoload": {
+    "psr-4": {
+      "Webguosai\\HyperfMailer\\": "src"
+    },
+    "files": [
+      "src/functions.php"
+    ]
+  },
+  "config": {
+    "sort-packages": true
+  },
+  "extra": {
+    "hyperf": {
+      "config": "Webguosai\\HyperfMailer\\ConfigProvider"
+    }
+  }
+}
