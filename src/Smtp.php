@@ -18,12 +18,12 @@ class Smtp implements MailerInterface
      * @param string $toMail 收件人邮箱
      * @param string $subject 主题
      * @param string $body 内容
-     * @param string $toName 收件人名称
+     * @param array $attachments 附件：文件路径
      * @param bool $isHtml HTML格式
      * @return bool
      * @throws Exception
      */
-    public function send(string $toMail, string $subject, string $body, string $toName = '', bool $isHtml = true): bool
+    public function send(string $toMail, string $subject, string $body, array $attachments = [], bool $isHtml = true): bool
     {
         $mail = new PHPMailer(true);
 
@@ -38,7 +38,15 @@ class Smtp implements MailerInterface
 
         // 收件人
         $mail->setFrom($this->config['from']['address'], $this->config['from']['name']); // 发件人邮箱和名称
-        $mail->addAddress($toMail, $toName); // 收件人邮箱和名称
+        $mail->addAddress($toMail, $toMail); // 收件人邮箱和名称
+        // $mail->addReplyTo('info@example.com', 'Information');
+        // $mail->addCC('cc@example.com');
+        // $mail->addBCC('bcc@example.com');
+
+        // 附件文件
+        foreach ($attachments as $attachment) {
+            $mail->addAttachment($attachment);
+        }
 
         // 内容
         $mail->isHTML($isHtml); // 设置邮件格式为 HTML

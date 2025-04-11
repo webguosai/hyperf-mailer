@@ -8,7 +8,7 @@ use Hyperf\Context\ApplicationContext;
 use Webguosai\HyperfMailer\Contract\MailerInterface;
 
 /**
- * @method static MailerInterface send(string $toMail, string $subject, string $body, string $toName, bool $isHtml)
+ * @method static MailerInterface send(string $toMail, string $subject, string $body, array $attachments, bool $isHtml)
  */
 class Mailer
 {

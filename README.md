@@ -55,7 +55,7 @@ return [
 ### 发送邮件
 
 ```php
-mailer()->send(string $toMail, string $subject, string $body, string $toName, bool $isHtml);
+mailer()->send(string $toMail, string $subject, string $body, array $attachments, bool $isHtml);
 ```
 
 ### Facade 发送
@@ -63,7 +63,7 @@ mailer()->send(string $toMail, string $subject, string $body, string $toName, bo
 ```php
 use Webguosai\HyperfSms\Facade;
 
-Mailer::send(string $toMail, string $subject, string $body, string $toName, bool $isHtml);
+Mailer::send(string $toMail, string $subject, string $body, array $attachments, bool $isHtml);
 ```
 
 ## License
