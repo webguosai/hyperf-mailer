@@ -55,7 +55,11 @@ return [
 ### 发送邮件
 
 ```php
-mailer()->send(string $toMail, string $subject, string $body, array $attachments, bool $isHtml);
+try {
+    mailer()->send(string $toMail, string $subject, string $body, array $attachments, bool $isHtml);
+} catch (\PHPMailer\PHPMailer\Exception $e) {
+    var_dump($e->getMessage());
+}
 ```
 
 ### Facade 发送
@@ -65,6 +69,10 @@ use Webguosai\HyperfSms\Facade;
 
 Mailer::send(string $toMail, string $subject, string $body, array $attachments, bool $isHtml);
 ```
+
+### 文档
+
+https://github.com/PHPMailer/PHPMailer?tab=readme-ov-file#a-simple-example
 
 ## License
 
